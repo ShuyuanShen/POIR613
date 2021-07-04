@@ -10,8 +10,12 @@ The basic unit of work for the `quanteda` package is called a `corpus`, which re
 
 ```{r}
 library(quanteda)
+library(quanteda.textplots)
 library(streamR)
-tweets <- parseTweets("data/trump-tweets.json")
+library(jsonlite)
+url <- "http://utstat.toronto.edu/~nathan/teaching/sta4002/Class4/trumptweets.JSON"
+tweets <- fromJSON(url)
+#tweets <- parseTweets("data/trump-tweets.json")
 twcorpus <- corpus(tweets)
 summary(twcorpus, n=10)
 ```
